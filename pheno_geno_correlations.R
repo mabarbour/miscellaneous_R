@@ -8,6 +8,8 @@ pheno_geno_correlations <- function(phenotypic_data, genotype_data, plot_data){
   library(gdata)
   library(vegan)
   library(ggplot2)
+  library(scales)
+  source('~/Documents/miscellaneous_R/ggplot_themes.R')
   
   x_corr_data <- corr.test(phenotypic_data)
   y_corr_data <- corr.test(genotype_data)
@@ -25,6 +27,6 @@ pheno_geno_correlations <- function(phenotypic_data, genotype_data, plot_data){
   melt_plot$X1 <- factor(melt_plot$X1, levels=unique(melt_plot$X1), ordered=TRUE)
   melt_plot$X2 <- factor(melt_plot$X2, levels=unique(melt_plot$X2), ordered=TRUE)
   
-  (plot_corr_plot <- qplot(data=melt_plot, x=X2, y=X1, fill=value, geom="tile") + scale_fill_gradientn(colours=c("blue","white", "red"), values = c(-1,0,1)) + xlab("") + ylab("") + theme(axis.text.x = element_text(angle=90))) # its weird that I have a value of 1 corresponding with "white" but that is not reflected in the figure legend.  The figure is representing what I want it to thoug
+  (plot_corr_plot <- qplot(data=melt_plot, x=X2, y=X1, fill=value, geom="tile") + scale_fill_gradientn(colours=c("blue","white", "red"), values = rescale(c(-1,0,1)), guide="colorbar", limits=c(-1,1), name = expression(paste("Pearson's ",italic(r),""))) + xlab("") + ylab("")+ theme_heatmap) # its weird that I have a value of 1 corresponding with "white" but that is not reflected in the figure legend.  The figure is representing what I want it to thoug
 }
 
