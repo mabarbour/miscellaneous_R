@@ -24,6 +24,7 @@ pheno_geno_correlations <- function(phenotypic_data, genotype_data){
 }
 
 heatmap_correlations <- function(plot_data){
+  source('~/Documents/miscellaneous_R/ggplot_themes.R')
   # create heat map of correlation data set of users choice
   melt_plot <- melt(cor(plot_data, use="pairwise.complete.obs"))
   melt_plot$X1 <- factor(melt_plot$X1, levels=unique(melt_plot$X1), ordered=TRUE)
