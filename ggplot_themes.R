@@ -2,7 +2,7 @@ library(ggplot2)
 library(grid)
 
 
-theme_axisL_legend <- theme_bw() + theme(axis.text=element_text(colour="black",size=16), axis.title=element_text(size=18), axis.line=element_line(colour="black"), legend.key=element_blank(), panel.grid=element_blank(), panel.border=element_blank(),legend.text=element_text(face="italic", size=18), legend.title=element_blank(),legend.justification=c(0,1), legend.position=c(0,1)) 
+theme_axisL_legend <- theme_bw() + theme(axis.text=element_text(colour="black",size=16), axis.title=element_text(size=18), axis.line=element_line(colour="black"), legend.key=element_blank(), panel.grid=element_blank(), panel.border=element_blank(),legend.title=element_text(face="bold", size=18),legend.text=element_text(face="italic", size=16),legend.justification=c(0,1), legend.position=c(0,1)) 
 
 theme_heatmap <- theme_bw() + theme(axis.text.x = element_text(angle=90, hjust=1, vjust=0.5), panel.border=element_blank())
 
