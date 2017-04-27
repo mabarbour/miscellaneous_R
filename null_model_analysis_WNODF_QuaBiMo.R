@@ -1,6 +1,6 @@
 null_model_analysis_WNODF_QuaBiMo <- function(web, type, observed_value, N_null_webs = 10000, null_model = "swap.web") {
   require('bipartite')
-  source('~/Documents/vegan/R/nestednodf.R')
+  require('vegan') 
   
   # generate null models
   null_web_list <- nullmodel(web, N = N_null_webs, method = null_model)
