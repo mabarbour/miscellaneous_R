@@ -38,8 +38,8 @@ autoplot.custom <- function (object, geom = c("point", "text"),
                                                                                                       "cm")), colour = col, size = arrow.size)
     pdat[, c("Dim1", "Dim2")] <- 1.1 * pdat[, c("Dim1", "Dim2"), 
                                             drop = FALSE]
-   # plt <- plt + geom_text(data = pdat, aes(x = Dim1, y = Dim2, 
-    #                                        label = Label), size = txt.size, colour = col) # so text would match arrow color
+    plt <- plt + geom_text(data = pdat, aes(x = Dim1, y = Dim2, 
+                                            label = Label), size = txt.size, colour = col) # so text would match arrow color
   }
   if (all(c("biplot", "centroids") %in% LAYERS)) {
     want <- obj$Score == "biplot"
@@ -72,8 +72,8 @@ autoplot.custom <- function (object, geom = c("point", "text"),
                                                                                                        "cm")), colour = col, size = arrow.size)
     obj[want, c("Dim1", "Dim2")] <- 1.1 * obj[want, c("Dim1", 
                                                       "Dim2")]
-    #plt <- plt + geom_text(data = obj[want, , drop = FALSE], 
-     #                      aes(x = Dim1, y = Dim2, label = Label), colour = col, size = txt.size) # added color here so it would match arrow color
+    plt <- plt + geom_text(data = obj[want, , drop = FALSE], 
+                           aes(x = Dim1, y = Dim2, label = Label), colour = col, size = txt.size) # added color here so it would match arrow color
   }
   if (any(want <- obj$Score == "centroids")) {
     plt <- plt + geom_text(data = obj[want, , drop = FALSE], 
